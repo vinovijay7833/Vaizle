@@ -1,0 +1,24 @@
+function processInput(inputObj) {
+  let mondayValue = inputObj['monday'];
+  let sundayValue = inputObj['sunday'];
+  let min = mondayValue;
+  let max = sundayValue;
+  let sum = mondayValue + sundayValue;
+
+  // Loop through the keys of the input object and update min, max, and sum
+  for (let key in inputObj) {
+    if (inputObj.hasOwnProperty(key)) {
+      let value = inputObj[key];
+      if (value < min) {
+        min = value;
+      }
+      if (value > max) {
+        max = value;
+      }
+      sum += value;
+    }
+  }
+
+  let average = sum / Object.keys(inputObj).length;
+  return {min, max, sum, average};
+}
